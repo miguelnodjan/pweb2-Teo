@@ -15,9 +15,17 @@
                     let bebidasDiv = document.getElementById('bebidas');
                     bebidasDiv.innerHTML = '';
                     data.forEach(bebida => {
-                        bebidasDiv.innerHTML += `<p>${bebida[1]} - ${bebida[2]} - Año: ${bebida[3]} - Contenido: ${bebida[4]}ml</p>`;
+                        bebidasDiv.innerHTML += `
+                            <div class="bebida">
+                                <span>${bebida[1]}</span>
+                                <span>${bebida[2]}</span>
+                                <span>Año: ${bebida[3]}</span>
+                                <span>Contenido: ${bebida[4]}ml</span>
+                            </div>
+                        `;
                     });
-                });
+                })
+                .catch(error => console.error('Error fetching bebidas:', error));
         }
 
         function addBebida() {
@@ -39,11 +47,11 @@
             .then(data => {
                 console.log('Bebida añadida:', data);
                 getBebidas();
-            });
+            })
+            .catch(error => console.error('Error adding bebida:', error));
         }
 
         window.onload = getBebidas;
     </script>
 </body>
- 
 </html>
