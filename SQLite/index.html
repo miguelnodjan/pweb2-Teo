@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Base de datos de venta de bebidas</title>
+</head>
+<body>
+    <h1>Listado de Bebidas</h1>
+    <div id="bebidas"></div>
+    <script>
+
+        function getBebidas() {
+            fetch('/bebidas')
+                .then(response => response.json())
+                .then(data => {
+                    let bebidasDiv = document.getElementById('bebidas');
+                    bebidasDiv.innerHTML = '';
+                    data.forEach(bebida => {
+                        bebidasDiv.innerHTML += `<p>${bebida[1]} - ${bebida[2]} - Año: ${bebida[3]} - Contenido: ${bebida[4]}ml</p>`;
+                    });
+                });
+        }
+
+        function addBebida() {
+            let newBebida = {
+                nombre: 'Seven Up',
+                marca: 'PepsiCo',
+                añoExp: 2023,
+                contenidoML: 600
+            };
+
+            fetch('/bebida', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newBebida)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Bebida añadida:', data);
+                getBebidas(); 
+            });
+        }
+        window.onload = getBebidas;
+    </script>
+</body>
+</html>
