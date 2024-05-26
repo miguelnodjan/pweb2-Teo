@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 import sqlite3
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.', static_url_path='')
 
 def query_db(query, args=(), one=False):
     conn = sqlite3.connect('imdb.db')
@@ -31,6 +31,10 @@ def add_bebida():
     conn.commit()
     conn.close()
     return jsonify(new_bebida), 201
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
