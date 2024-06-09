@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>Hola Mundo desde Django</h1>
-    \<h2>con Templates</h2>
+    <h2>con Templates</h2>
+    {{request.user}}
+    <br>
+    {{request.user.is_authenticated}}
 </body>
 </html>
