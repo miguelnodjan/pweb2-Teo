@@ -8,4 +8,4 @@ def personaTestView(request):
         'nombre' : obj.nombre,
         'edad' : obj.edad
     }
-    return render(request, 'persona/test.html', context)
+    return render(request, 'personas/test.html', context)
