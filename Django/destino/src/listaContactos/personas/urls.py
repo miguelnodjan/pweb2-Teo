@@ -1,7 +1,7 @@
 
 from django.urls import path
 from personas.views import personaTestView, personaCreateView, personasDeleteView, personasAnotherCreateView, personasShowObject, personasListView
-
+from .views import personasListView
 app_name = 'personas'
 urlpatterns = [
 
