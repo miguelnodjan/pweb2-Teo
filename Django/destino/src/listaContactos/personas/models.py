@@ -8,4 +8,4 @@ class Persona(models.Model):
     donador = models.BooleanField()
 
 def get_absolute_url(self):
-    return "/personas/" + str(self.nombre) + "/"
+    return reversed('browsing', kwargs={'myID': self.id})
