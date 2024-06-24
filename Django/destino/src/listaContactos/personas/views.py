@@ -42,7 +42,15 @@ def searchForHelp   (request):
 
 def personasShowObject(request, myID):
     ibj = Persona.objects.get(id = myID)
-    context ={
-        'objeto' : ibj,
+    context={
+        'objeto' : ibj
+
     }
     return render(request, 'personas/descripcion.html', context)
+def personasListView(request):
+    queryset = Persona.objects.all()
+    contect = {
+        'objectList' : queryset
+
+    }
+    return render(request, 'personas/personasList.html', contect)
