@@ -4,7 +4,9 @@ from .forms import PersonaForm, RawPersonaForm
 
 # Create your views here.
 def personasAnotherCreateView(request):
-    form = RawPersonaForm(request.POST)
+    form = RawPersonaForm()#request.GET
+    if request.method == 'POST':
+        form = RawPersonaForm(request.POST)
     context ={
         'form': form,
     }
