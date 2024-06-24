@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from inicio.views import anotherView, myHomeView
-from personas.views import personaTestView, personaCreateView, searchForHelp, personasAnotherCreateView
+from personas.views import personaTestView, personaCreateView, searchForHelp, personasAnotherCreateView, personasShowObject
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +27,5 @@ urlpatterns = [
     path('agregar/', personaCreateView, name ='createPersona'),
     path('buscar/', searchForHelp, name ='buscar'),
     path('anotherAgregar/', personasAnotherCreateView, name ='otroCreatePersona'),
+    path('personas/<int:myID>/', personasShowObject, name = 'browsing')
 ]
