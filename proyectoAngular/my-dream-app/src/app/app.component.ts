@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HelloWorldComponent } from './hello-world/hello-world.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule], // Asegúrate de incluir CommonModule aquí
+  imports: [RouterOutlet, CommonModule, HelloWorldComponent], 
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'] // Cambié `styleUrl` a `styleUrls`
+  styleUrls: ['./app.component.css'] 
 })
 export class AppComponent {
   title = 'my-dream-app';
@@ -17,7 +18,7 @@ export class AppComponent {
   hobbies: string[];
   showHobbies: boolean;
 
-
+  
   constructor() {
     console.log('Constructor working...');
     this.name = 'John Doe';
