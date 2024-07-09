@@ -15,6 +15,8 @@ export class AppComponent {
   email: string;
   webpage: string;
   hobbies: string[];
+  showHobbies: boolean;
+
 
   constructor() {
     console.log('Constructor working...');
@@ -22,11 +24,12 @@ export class AppComponent {
     this.email = 'johndoe@example.com';
     this.webpage = 'https://www.example.com';
     this.hobbies = ['futbol', 'voleyball', 'basquetball'];
+    this.showHobbies = false;
   }
-
-  showHobbies() {
-    return true;
+  toggleHobbies(){
+    this.showHobbies =!this.showHobbies;
   }
+  
 }
 
 
