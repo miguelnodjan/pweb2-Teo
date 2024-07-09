@@ -12,5 +12,8 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
       
   }
+  sayhello(nameUser: any){
+    alert('Hola  '+ nameUser);
+  }
 
 }
