@@ -41,7 +41,13 @@ export class AppComponent {
   sayHello(){
     alert('Hello from AppComponent!');
   }
-  
+  deleteUser(user:any){
+    for(let i = 0; i < this.users.length; i++){
+      if(this.users[i] === user){
+        this.users.splice(i, 1);
+      }
+    }
+  }
 }
 
 
