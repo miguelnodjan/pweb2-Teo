@@ -1,26 +1,29 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule], // Asegúrate de incluir CommonModule aquí
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'] // Cambié `styleUrl` a `styleUrls`
 })
 export class AppComponent {
   title = 'my-dream-app';
-  name : string;
-  email;
-  webpage : string;
-  hobbies : string[];
-  constructor(){
+  name: string;
+  email: string;
+  webpage: string;
+  hobbies: string[];
+
+  constructor() {
     console.log('Constructor working...');
     this.name = 'John Doe';
     this.email = 'johndoe@example.com';
     this.webpage = 'https://www.example.com';
-    this.hobbies = ['futbol', 'voleyball', 'basquetball']
+    this.hobbies = ['futbol', 'voleyball', 'basquetball'];
   }
+
   showHobbies() {
     return true;
   }
