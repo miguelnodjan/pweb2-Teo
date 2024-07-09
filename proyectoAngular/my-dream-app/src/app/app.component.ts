@@ -3,11 +3,13 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { UserComponent } from './user/user.component';
+import { DataService } from './data.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, HelloWorldComponent, UserComponent], 
+  imports: [RouterOutlet, CommonModule, HelloWorldComponent, UserComponent, HttpClient, HttpClientModule, ], 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'] 
 })
@@ -22,7 +24,10 @@ export class AppComponent {
   showHobbies: boolean;
 
   
-  constructor() {
+  constructor(private dataService: DataService) {
+    this.dataService.getData().subscribe((data: any[]) => {
+      console.log(data)
+    });
     console.log('Constructor working...');
     this.name = 'John Doe';
     this.email = 'johndoe@example.com';
